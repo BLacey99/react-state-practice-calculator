@@ -14,8 +14,10 @@ function AddForm() {
 
   const [result, setResult] = useState(0); // replace result with value of setResult()??
 
+  const [length, setLength] = useState(0);
   function handleChange(e) {
-    setNum(e.target.value); //e.target is whatever element which is calling an event and this event is tied to.
+    setNum(e.target.value);
+    setLength(e.target.value.length); //e.target is whatever element which is calling an event and this event is tied to.
   } //value={num} says whatever is typed is now the value of {num}. Each change, called handleChange(e) and setNum, taking the current value, which is value={num} and setting it as the value of const{num, setNum};
 
   function handleSubmit(e) {
@@ -51,6 +53,7 @@ function AddForm() {
       <input type="number" value={num} onChange={handleChange} />
       <input type="submit" value="Submit" />
       <p> Current num is {num}</p>
+      <p> Characters remaining {16-length}</p>
 
       <br />
       <br />
