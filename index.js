@@ -15,23 +15,24 @@ function AddForm() {
   const [result, setResult] = useState(0); // replace result with value of setResult()??
 
   const [length, setLength] = useState(0);
-  function handleChange(e) {
+  function handleChange(e) { //On any change in the input field, updates state of below setX functions
+
     setNum(e.target.value);
     setLength(e.target.value.length); //e.target is whatever element which is calling an event and this event is tied to.
   } //value={num} says whatever is typed is now the value of {num}. Each change, called handleChange(e) and setNum, taking the current value, which is value={num} and setting it as the value of const{num, setNum};
 
-  function handleSubmit(e) {
+  function handleSubmit(e) { //On invoke, calls all setX Functions below to update the state for each.
+
     setSum(sum + Number(num)); //Takes sum and type converts string from form field into Number.
 
     setDifference(sum - Number(num) + Number(num)); //Takes current value of difference, and subtracts num from it.
 
     setProduct((Number(num) + sum) * Number(num)); //Takes current value of product + 1, and multiples it by num
 
-    setResult(sum / Number(num)); // Takes current value of result+1, and divides it by num.
+    setResult(sum / Number(num)+1); // Takes current value of result+1, and divides it by num.
 
     e.preventDefault(); //stops form from refreshing
   }
-
   //On submit, invokes setX function calls.
 
   //Each input, prior to submit, takes the value typed in the field, and passes it as argument {num} when it detects a change in the field by using onChange, to handleChange.
@@ -62,6 +63,7 @@ function AddForm() {
       <p>Difference is {difference}</p>
       <p>Product is {product}</p>
       <p>Result is {result}</p>
+
     </form>
   );
 }
