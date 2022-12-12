@@ -19,7 +19,7 @@ function AddForm() {
 
   function handleChange(e) {
     setNum(e.target.value); //e.target is whatever element which is calling an event and this event is tied to.
-  }
+  }//value={num} says whatever is typed is now the value of {num}. Each change, called handleChange(e) and setNum, taking the current value, which is value={num} and setting it as the value of const{num, setNum};
   
 
   function handleSubmit(e) {
